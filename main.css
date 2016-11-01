@@ -1,0 +1,30 @@
+body {
+	background-color: #000000;
+}
+main {
+    margin: 0 auto;
+    color: #D9CDA0;
+}
+header, .button-controls, .content {
+    width: 100%;
+}
+h1, p, li, input{
+    text-align: center;
+}
+h1 {
+	color: #E8D060;
+}
+.button-controls button {
+    display: block;
+    margin: 0 auto;
+}
+.background {
+	background-image: url('http://demo.warcraftwordpress.com/wp-content/themes/warcraftwordpressv2/images/page-bg-span.jpg');
+	height: 75%;
+	width: 75%;
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
