@@ -29,17 +29,41 @@ function loadArrayOfQuestions() {
         choicesArray: addRadioElements(['Mage','Warrior','Monk','Peon']),
         correctAnswer: 'Peon',
     }, {
-        question: 'B',
-        choicesArray: addRadioElements(['Question 1','Question 2','Question 3','Question 4']),
-        correctAnswer: 'Question 2',
+        question: 'Who was the apprentice of Medivh?',
+        choicesArray: addRadioElements(['Varian Wrynn','Jaina Proudmoore','Aegwynn','Khadgar']),
+        correctAnswer: 'Khadgar',
     }, {
-        question: 'C',
-        choicesArray: addRadioElements(['Question 5','Question 6','Question 7','Question 8']),
-        correctAnswer: 'Question 7',
+        question: 'Who is the new Lich King?',
+        choicesArray: addRadioElements(['Tirion Fordring','Kalecgos','Bolvar Fordragon','Uther']),
+        correctAnswer: 'Bolvar Fordragon',
     }, {
-        question: 'D',
-        choicesArray: addRadioElements(['Question 9','Question 10','Question 11','Question 12']),
-        correctAnswer: 'Question 12',
+        question: 'Which class is the most agile in World of Warcraft?',
+        choicesArray: addRadioElements(['Hunter','Rogue','Demon Hunter','Druid']),
+        correctAnswer: 'Demon Hunter',
+    }, {
+        question: 'Which faction are Pandaren associated with?',
+        choicesArray: addRadioElements(['The Sha','Alliance','Horde','Both Alliance and Horde']),
+        correctAnswer: 'Both Alliance and Horde',
+    }, {
+        question: 'What is the final raid in the Burning Crusade expansion?',
+        choicesArray: addRadioElements(['Black Temple','Icecrown Citadel','Sunwell','The Emerald Dream']),
+        correctAnswer: 'Sunwell',
+    }, {
+        question: 'Who killed Garrosh Hellscream?',
+        choicesArray: addRadioElements(['Varian','Sylvannas','Thrall','Kalecgos']),
+        correctAnswer: 'Thrall',
+    }, {
+        question: 'Who destroyed the Avatar of Sargeras?',
+        choicesArray: addRadioElements(['Anduin Lothar','Khadgar','Velen','Aegwynn']),
+        correctAnswer: 'Aegwynn',
+    }, {
+        question: 'Who was the Queen of the Night Elves?',
+        choicesArray: addRadioElements(["Azshara","Malfurion","Tyrande","Illidan"]),
+        correctAnswer: "Azshara",
+    }, {
+        question: 'Which weapon shattered Frostmourne?',
+        choicesArray: addRadioElements(['Gorehowl','Doomhammer','Ashbringer','Aluneth']),
+        correctAnswer: 'Ashbringer',
     } ];
     return Array;
 }
@@ -58,7 +82,7 @@ function printQuestions(radioButtonArray) {
 }
 function multipleQuestions(questions,i) {
         $(".content").prepend("<p>"+questions[score.i].question+"</p>");
-        $(".content").prepend("<p>Question: "+score.question+" of 4</p><p>"+score.correct+" correct/ "+score.wrong+" wrong</p>");
+        $(".content").prepend("<p>Question: "+score.question+" of 10</p><p>"+score.correct+" correct/ "+score.wrong+" wrong</p>");
         $(".content").append("<p>"+printQuestions(questions[score.i].choicesArray)+"</p>");//Create a function to return questions list in the from
         $(".button-controls").prepend("<button class='submit-button' disabled>Submit Answer</button>");
         $(".submit-button").click(function() {
@@ -76,52 +100,31 @@ function multipleQuestions(questions,i) {
               score.question++;
               score.i++;
           }
-          if(score.question <= 4) {
+          if(score.question <= 10) {
           $(".button-controls").append("<button class='next-button'>Next Question</button>");
       }
           else {
           $(".button-controls").append("<button class='end-button'>End Quiz</button>");
           }
         });
-        // $("button.next-button").click(function() {
-        //    $(".content").append("<p>"+questions[i].choicesArray+"</p>");
-        //    i++;
-        //    if(i === Array.length-1) {
-        //        //prepend content saying what is the score
-        //    }
-        // });
+
     $("main").on("click","input", function () {
            $(".submit-button").prop("disabled",false);
     });
-    // $(".submit-button").click(function () {
-    //       $("input").attr("disabled","disabled");
-    //       $(".button-controls").prepend("<button class='next-button'>Next Question</button>");
-    // });
-    //       if($("input:checked").val()===questions[i].correctAnswer) {
-    //           $(".button-controls").prepend("<p>Correct Answer</p>");
-    //       }
-    //       else {
-    //           $(".button-controls").prepend("<p>Wrong! The Correct Answer is: "+questions[i].correctAnswer+"</p>");
-    //       }
-    // });
 }
+
 function changeQuestion(questions) {
-    console.log("ABC FUNCTION RAN!");
     $("form, p, button").remove();
-    if(score.question <= 4) {
+    if(score.question <= 10) {
     multipleQuestions(questions);
 }
     else {
     finalPage(questions);
 }
-    // $("input, p, button").remove();
-    // $(".button-controls").prepend("<button class='next-button'>Next Question</button>");
-    // $(".content").prepend("<p>"+questions[i].question+"</p>");
-    // $(".content").prepend("<p>Question: "+(i+1)+" of 10</p><p>"+score.correct+" correct/ "+score.wrong+" wrong");
 }
 function finalPage (questions){
         $("form, p, button").remove();
-        $(".content").prepend("<p>You have finied the Quiz!</p>");
+        $(".content").prepend("<p>You have finised the Quiz!</p>");
         $(".content").prepend("<p>You got "+score.correct+" correct and "+score.wrong+" wrong</p>");
         $(".button-controls").prepend("<button class='retake-button'>Retake Quiz</button>");
 
